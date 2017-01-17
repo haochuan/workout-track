@@ -38,9 +38,9 @@ const userRoute = {
           }
         } else {
           res.status(404).send({
-              status: 'NOTFOUND',
-              message: 'Uesr Not Found'
-            });
+            status: 'NOTFOUND',
+            message: 'User Not Found'
+          });
         }
       }
     });
