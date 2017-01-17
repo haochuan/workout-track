@@ -1,53 +1,47 @@
-reactux
-=================
-Ready-to-go template for React + Redux application
-BY _haochuan(haochuan.liu@gmail.com)
+# Workout Tracker
 
-Installation
-------------
+App to track workout progress. There are three main components:
 
-    npm install -g reactux
-    
-Usage
-------------
+- `Workout`: Similar to daily plan, contains a number of `Exercise'
+- 'Exercise': TBD
+- 'Tracker': TBD
 
-    reactux [project name]
-    // this will create a folder [project name] contains the template in current directory
-
-About the Template
-------------
-
-- CLI to generate start files
-- Fully support ES6 
-- Reasonable file structure for React and Redux
-- React Router support
-- Built-in Redux dev tools and middlewares 
-- Full webpack setup with [webpack dashboard](https://github.com/FormidableLabs/webpack-dashboard)for dev and production environment, including compiling JSX, eslint, different loaders, CSS module, Hot Module Reload, copying dependencies, building and deploying
-- Express server with customization and configuration including auth, logger, cor 
-- Components and Reducer tests Setup with [ava](https://github.com/avajs/ava), [enzyme](https://github.com/airbnb/enzyme) and [sinon](http://sinonjs.org/)
-- Ajax calls with [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch) and [normalizr](https://github.com/paularmstrong/normalizr)
-- [eslint](http://eslint.org/) built-in with customized configuration
-- App store sync with LocalStorage 
-- Nested React Router Setting
-- Deploy with pm2 
-
-Development
-------------
+## Installation
 
 ```
 npm install
+```
+
+## Usage
+
+```
 npm run dev
-npm run dev-dashboard // run dev server with webpack-dashboard
 ```
 
-- run test: `npm run test`
-- lint: `npm run lint`
+Please see `package.json` for more detail.
 
-Production
-------------
+## Todo
 
-```
-npm install --production
-npm run build
-npm run production
-```
+1. Write tests for APIs
+2. Finish `Tracker` APIs
+3. Web App
+
+## Contributing
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
+
+## History
+
+TODO: Write history
+
+## Credits
+
+TODO: Write credits
+
+## License
+
+TODO: Write license
