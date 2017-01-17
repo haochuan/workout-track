@@ -8,9 +8,18 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import routes from './routes';
-import config from '../webpack.config';
+import webpackConfig from '../webpack.config';
+
+// server
+import mongodb from './config';
+import passport from 'passport';
+import passportConfig from './config/passport';
+
+
 
 const app = express();
+
+passportConfig(passport); // pass passport for configuration
 
 // const router = express.Router({
 // 	caseSensitive: app.get('case sensitive routing'),
@@ -38,15 +47,17 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(favicon(path.join(__dirname, "../favicon.ico")));
+app.use(passport.initialize());
+app.use(passport.session());
 // app.use(router);
 
-const port = isProduction ? process.env.PORT : 3000;
 const isProduction = process.env.NODE_ENV === 'production';
+const port = isProduction ? process.env.PORT : 3000;
 
 if (!isProduction) {
-	let compiler = webpack(config);
+	let compiler = webpack(webpackConfig);
 	let webpackMiddleware = webpackDevMiddleware(compiler, {
-		publicPath: config.output.publicPath,
+		publicPath: webpackConfig.output.publicPath,
 		quite: true,
 		contentBase: 'src',
 		stats: {
