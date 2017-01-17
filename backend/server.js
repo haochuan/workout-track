@@ -11,7 +11,9 @@ import routes from './routes';
 import webpackConfig from '../webpack.config';
 
 // server
-import mongodb from './config';
+import db from './config/db';
+import env from './config/env';
+
 
 
 
@@ -46,8 +48,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(favicon(path.join(__dirname, "../favicon.ico")));
 // app.use(router);
 
-const isProduction = process.env.NODE_ENV === 'production';
-const port = isProduction ? process.env.PORT : 3000;
+const isProduction = env.name === 'production';
+const port = env.port;
 
 if (!isProduction) {
 	let compiler = webpack(webpackConfig);
@@ -84,9 +86,7 @@ const server = app.listen(port, function() {
 	let host = server.address().address;
 	let port = server.address().port;
 
-	var envString = isProduction ? "Production" : "Development";
-
-	console.log(envString + ' server listening at http://%s:%s', host, port);
+	console.log(env.name + ' server listening at http://%s:%s', host, port);
 
 });
 
