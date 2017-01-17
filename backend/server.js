@@ -12,14 +12,11 @@ import webpackConfig from '../webpack.config';
 
 // server
 import mongodb from './config';
-import passport from 'passport';
-import passportConfig from './config/passport';
 
 
 
 const app = express();
 
-passportConfig(passport); // pass passport for configuration
 
 // const router = express.Router({
 // 	caseSensitive: app.get('case sensitive routing'),
@@ -47,8 +44,6 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(favicon(path.join(__dirname, "../favicon.ico")));
-app.use(passport.initialize());
-app.use(passport.session());
 // app.use(router);
 
 const isProduction = process.env.NODE_ENV === 'production';

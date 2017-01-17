@@ -4,21 +4,12 @@ import userRoute from './user';
 
 const router = Router();
 
-// router.route('/api/users')
-//   .post(userRoute.create);
+router.route('/signup')
+  .post(userRoute.create);
 
-router.post('/login', (req, res, next) => {
-  passport.authenticate('local-signin', { successRedirect: '/good',
-                                       failureRedirect: '/bad',
-                                       failureFlash: false })(req, res, next);
-  });
+router.route('/login')
+  .post(userRoute.login);
 
-router.post('/signup', (req, res, next) => {
-  console.log(req.body);
-  passport.authenticate('local-signup', { successRedirect: '/good',
-                                       failureRedirect: '/bad',
-                                       failureFlash: false })(req, res, next);
-  });
 
 
 
