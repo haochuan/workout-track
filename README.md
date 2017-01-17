@@ -2,9 +2,9 @@
 
 App to track workout progress. There are three main components:
 
-- `Workout`: Similar to daily plan, contains a number of `Exercise'
-- 'Exercise': TBD
-- 'Tracker': TBD
+- `Workout`: Similar to daily plan, contains a number of `Exercise`
+- `Exercise`: TBD
+- `Tracker`: TBD
 
 ## Installation
 
