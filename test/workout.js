@@ -162,4 +162,48 @@ describe('Workout Test Suites', () => {
         });
       });
     });
+
+    /*
+    * Test the /PUT /api/workout/:workoutId
+    */
+    describe('PUT /api/workout/:workoutId', () => {
+      let updateInfo = {
+        date: '2017-01-07', 
+        name: 'leg day 6'
+      };
+
+      it('it should UPDATE one workout with the workoutId', (done) => {
+        let newWorkout = new Workout({
+          "date": "2017-01-06",
+          "name": "leg day 5",
+          "userId": "587d93fdf4864eaf9cd8b923"
+        });
+        newWorkout.save((err, workout) => {
+          chai.request(server)
+          .put('/api/workout/' + workout.id)
+          .send(updateInfo)
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.status.should.equal('SUCCESS');
+            res.body.data.should.be.a('object');
+            moment(res.body.data.date).utc().format('YYYY-MM-DD').should.equal(moment(updateInfo.date).utc().format('YYYY-MM-DD'));
+            res.body.data.name.should.equal(updateInfo.name);
+            res.body.data._id.should.equal(workout.id);
+            res.body.data.userId.should.equal(workout.userId.toString());
+            done();
+          });
+        });
+      });
+
+      it('it should GET 404 with the invalid workoutId', (done) => {
+        chai.request(server)
+        .put('/api/workout/' + "587d93fdf4864eaf9cd8b930")
+        .send(updateInfo)
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.status.should.equal('NOTFOUND');
+          done();
+        });
+      });
+    });
 });
