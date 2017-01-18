@@ -206,4 +206,39 @@ describe('Workout Test Suites', () => {
         });
       });
     });
+
+    /*
+    * Test the /DELETE /api/workout/:workoutId
+    */
+    describe('DELETE /api/workout/:workoutId', () => {
+      it('it should DELETE one workout with the workoutId', (done) => {
+        let newWorkout = new Workout({
+          "date": "2017-01-08",
+          "name": "leg day 10",
+          "userId": "587d93fdf4864eaf9cd8b911"
+        });
+        newWorkout.save((err, workout) => {
+          chai.request(server)
+          .delete('/api/workout/' + workout.id)
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.status.should.equal('SUCCESS');
+            res.body.data.should.be.a('object');
+            res.body.data.should.have.property('ok', 1);
+            res.body.data.should.have.property('n', 1);
+            done();
+          });
+        });
+      });
+
+      it('it should GET 404 with the invalid workoutId', (done) => {
+        chai.request(server)
+        .delete('/api/workout/' + "587d93fdf4864eaf9cd8b944")
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.status.should.equal('NOTFOUND');
+          done();
+        });
+      });
+    });
 });

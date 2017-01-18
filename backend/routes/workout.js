@@ -97,9 +97,9 @@ const workoutRoute = {
           });
         } else {
           res.status(404).send({
-              status: 'NOTFOUND',
-              message: 'Exercise Not Found'
-            });
+            status: 'NOTFOUND',
+            message: 'Exercise Not Found'
+          });
         }
       }
     });
@@ -110,10 +110,17 @@ const workoutRoute = {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send({
-          status: 'SUCCESS',
-          data: workout
-        });
+        if (workout && workout.result && workout.result.ok === 1 && workout.result.n === 1) {
+          res.status(200).send({
+            status: 'SUCCESS',
+            data: workout
+          });
+        } else {
+          res.status(404).send({
+            status: 'NOTFOUND',
+            message: 'Exercise Not Found'
+          });
+        }
       }
     })
   }
