@@ -12,7 +12,7 @@ chai.use(chaiHttp);
 
 //Our parent block
 describe('Workout', () => {
-    beforeEach((done) => { //Before each test we empty the database
+    before((done) => { //Before each test we empty the database
         Workout.remove({}, (err) => { 
            done();         
         });     
@@ -72,6 +72,36 @@ describe('Workout', () => {
         it('it should not create Workout with same date and userId', (done) => {
           let workout = {
             "date": "2017-01-02",
+            "name": "leg day 2",
+            "userId": "587d93fdf4864eaf9cd8b923"
+          };
+          chai.request(server)
+            .post('/api/workout')
+            .send(workout)
+            .end((err, res) => {
+              res.should.have.status(500);
+              done();
+            });
+        });
+
+        it('it should create Workout with same date but not same userId', (done) => {
+          let workout = {
+            "date": "2017-01-02",
+            "name": "leg day 2",
+            "userId": "587d93fdf4864eaf9cd8b922"
+          };
+          chai.request(server)
+            .post('/api/workout')
+            .send(workout)
+            .end((err, res) => {
+              res.should.have.status(500);
+              done();
+            });
+        });
+
+        it('it should create Workout with same userId but not same date', (done) => {
+          let workout = {
+            "date": "2017-01-04",
             "name": "leg day 2",
             "userId": "587d93fdf4864eaf9cd8b923"
           };
