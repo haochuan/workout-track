@@ -34,7 +34,7 @@ const workoutRoute = {
         } else {
           res.status(404).send({
             status: 'NOTFOUND',
-            message: 'Exercise Not Found'
+            message: 'Workout Not Found'
           });
         }
       }
