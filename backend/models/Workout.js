@@ -5,7 +5,7 @@ let WorkoutSchema = new Schema({
   name: {type: String, required: true},
   date: {type: Date, required: true, unique: true, dropDups: true},
 
-  userId: {type: Schema.Types.ObjectId, required: true},
+  userId: {type: Schema.Types.ObjectId, required: true, unique: true, dropDups: true},
 
   created_at: {type: Date, default: Date.now},
   updated_at: {type: Date},

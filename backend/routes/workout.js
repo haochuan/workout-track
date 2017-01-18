@@ -41,6 +41,19 @@ const workoutRoute = {
     });
   },
 
+  findAll: function(req, res) {
+    Workout.find({}, function(err, workout) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send({
+          status: 'SUCCESS',
+          data: workout
+        });
+      }
+    });
+  },
+
   // findByUser: function(req, res) {
   //   Exercise.find({userId: req.body.userId}, function(err, exercise) {
   //     if (err) {

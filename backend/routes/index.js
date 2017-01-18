@@ -21,6 +21,7 @@ router.route('/api/exercise/:exerciseId')
   .delete(exerciseRoute.deleteOne);
 
 router.route('/api/workout')
+  .get(workoutRoute.findAll)
   .post(workoutRoute.createOne);
 
 router.route('/api/workout/:workoutId')

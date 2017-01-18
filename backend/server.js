@@ -48,10 +48,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(favicon(path.join(__dirname, "../favicon.ico")));
 // app.use(router);
 
-const isProduction = env.name === 'production';
 const port = env.port;
 
-if (!isProduction) {
+if (env.name === 'dev') {
 	let compiler = webpack(webpackConfig);
 	let webpackMiddleware = webpackDevMiddleware(compiler, {
 		publicPath: webpackConfig.output.publicPath,
@@ -73,11 +72,13 @@ if (!isProduction) {
 		res.write(webpackMiddleware.fileSystem.readFileSync(path.join(__dirname, '../frontend/dist/index.html')));
 		res.end();
 	});
-} else {
+} else if (env.name === 'production') {
 	app.use(express.static(path.join(__dirname, '../frontend/build')));
 	app.get('/', function response(req, res) {
 		res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
 	});
+} else {
+	// test here
 }
 
 
@@ -92,3 +93,5 @@ const server = app.listen(port, function() {
 
 // Routes
 app.use('/', routes);
+
+export default app;
