@@ -8,7 +8,6 @@ const exerciseRoute = {
       sets: Number(req.body.sets),
       reps: Number(req.body.reps),
       weights: Number(req.body.weights),
-      level: 1, // init level is 1
       userId: req.body.userId,
       workoutId: req.body.workoutId
     });
@@ -45,25 +44,18 @@ const exerciseRoute = {
     });
   },
 
-  // findByUser: function(req, res) {
-  //   Exercise.find({userId: req.body.userId}, function(err, exercise) {
-  //     if (err) {
-  //       res.status(500).send(err);
-  //     } else {
-  //       if (exercise.length) {
-  //         res.status(200).send({
-  //           status: 'SUCCESS',
-  //           data: exercise
-  //         });
-  //       } else {
-  //         res.status(404).send({
-  //           status: 'NOTFOUND',
-  //           message: 'Exercise Not Found'
-  //         });
-  //       }
-  //     }
-  //   });
-  // },
+  findAll: function(req, res) {
+    Exercise.find({}, function(err, exercise) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send({
+          status: 'SUCCESS',
+          data: exercise
+        });
+      }
+    });
+  },
 
   updateOne: function(req, res) {
     Exercise.findOne({_id: req.params.exerciseId}, function(err, exercise) {

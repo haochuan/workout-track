@@ -44,6 +44,19 @@ const trackerRoute = {
     });
   },
 
+  findAll: function(req, res) {
+    Tracker.find({}, function(err, tracker) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send({
+          status: 'SUCCESS',
+          data: tracker
+        });
+      }
+    });
+  },
+
   updateOne: function(req, res) {
     Tracker.findOne({_id: req.params.trackerId}, function(err, tracker) {
       if (err) {
@@ -96,4 +109,4 @@ const trackerRoute = {
   }
 }
 
-export default exerciseRoute;
+export default trackerRoute;

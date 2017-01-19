@@ -9,5 +9,4 @@ let UserSchema = new Schema({
   deleted_at: {type: Date}
 });
 
-
 export default mongoose.model('User', UserSchema);

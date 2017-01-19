@@ -15,5 +15,4 @@ let WorkoutSchema = new Schema({
 
 WorkoutSchema.index({ userId: 1, date: 1 }, { unique: true, dropDups: true});
 
-
 export default mongoose.model('Workout', WorkoutSchema);

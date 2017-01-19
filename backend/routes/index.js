@@ -14,6 +14,7 @@ router.route('/login')
   .post(userRoute.login);
 
 router.route('/api/exercise')
+  .get(exerciseRoute.findAll)
   .post(exerciseRoute.createOne);
 
 router.route('/api/exercise/:exerciseId')

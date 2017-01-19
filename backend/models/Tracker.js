@@ -16,5 +16,6 @@ let TrackerSchema = new Schema({
   deleted_at: {type: Date}
 });
 
+TrackerSchema.index({ setOrder: 1, exerciseId: 1 }, { unique: true, dropDups: true});
 
 export default mongoose.model('Tracker', TrackerSchema);
