@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 let TrackerSchema = new Schema({
   setOrder: {type: Number, required: true},
-  sets: {type: Number, required: true},
   reps: {type: Number, required: true},
   weights: {type: Number, required: true},
   level: {type: Number, required: true},
