@@ -1,19 +1,18 @@
-import Exercise from '../models/Exercise';
+import Tracker from '../models/Tracker';
 
-const exerciseRoute = {
+const trackerRoute = {
   createOne: function(req, res) {
-    let exercise = new Exercise({
-      type: req.body.type,
-      name: req.body.name,
+    let tracker = new Tracker({
+      setOrder: req.body.setOrder,
       sets: Number(req.body.sets),
       reps: Number(req.body.reps),
       weights: Number(req.body.weights),
       level: 1, // init level is 1
       userId: req.body.userId,
-      workoutId: req.body.workoutId
+      exerciseId: req.body.exerciseId
     });
 
-    exercise.save((err, data) => {
+    tracker.save((err, data) => {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -26,14 +25,14 @@ const exerciseRoute = {
   },
 
   findById: function(req, res) {
-    Exercise.findOne({_id: req.params.exerciseId}, function(err, exercise) {
+    Tracker.findOne({_id: req.params.trackerId}, function(err, tracker) {
       if (err) {
         res.status(500).send(err);
       } else {
-        if (exercise) {
+        if (tracker) {
           res.status(200).send({
             status: 'SUCCESS',
-            data: exercise
+            data: tracker
           });
         } else {
           res.status(404).send({
@@ -45,38 +44,18 @@ const exerciseRoute = {
     });
   },
 
-  // findByUser: function(req, res) {
-  //   Exercise.find({userId: req.body.userId}, function(err, exercise) {
-  //     if (err) {
-  //       res.status(500).send(err);
-  //     } else {
-  //       if (exercise.length) {
-  //         res.status(200).send({
-  //           status: 'SUCCESS',
-  //           data: exercise
-  //         });
-  //       } else {
-  //         res.status(404).send({
-  //           status: 'NOTFOUND',
-  //           message: 'Exercise Not Found'
-  //         });
-  //       }
-  //     }
-  //   });
-  // },
-
   updateOne: function(req, res) {
-    Exercise.findOne({_id: req.params.exerciseId}, function(err, exercise) {
+    Tracker.findOne({_id: req.params.trackerId}, function(err, tracker) {
       if (err) {
         res.status(500).send(err);
       } else {
-        if (exercise) {
+        if (tracker) {
           for (let key in req.body) {
-            if (exercise[key]) {
-              exercise[key] = req.body[key];
+            if (tracker[key]) {
+              tracker[key] = req.body[key];
             }
           }
-          exercise.save((err, data) => {
+          tracker.save((err, data) => {
             if (err) {
               res.status(500).send(err);
             } else {
@@ -97,14 +76,14 @@ const exerciseRoute = {
   },
 
   deleteOne: function(req, res) {
-    Exercise.remove({_id: req.params.exerciseId}, (err, exercise) => {
+    Tracker.remove({_id: req.params.trackerId}, (err, tracker) => {
       if (err) {
         res.status(500).send(err);
       } else {
-        if (exercise && exercise.result && exercise.result.ok === 1 && exercise.result.n === 1) {
+        if (tracker && tracker.result && tracker.result.ok === 1 && tracker.result.n === 1) {
           res.status(200).send({
             status: 'SUCCESS',
-            data: exercise
+            data: tracker
           });
         } else {
           res.status(404).send({

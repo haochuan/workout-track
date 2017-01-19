@@ -3,6 +3,7 @@ import passport from 'passport';
 import userRoute from './user';
 import exerciseRoute from './exercise';
 import workoutRoute from './workout';
+import trackerRoute from './tracker';
 
 const router = Router();
 
@@ -29,7 +30,14 @@ router.route('/api/workout/:workoutId')
   .put(workoutRoute.updateOne)
   .delete(workoutRoute.deleteOne);
 
+  router.route('/api/tracker')
+  .get(trackerRoute.findAll)
+  .post(trackerRoute.createOne);
 
+router.route('/api/tracker/:trackerId')
+  .get(trackerRoute.findById)
+  .put(trackerRoute.updateOne)
+  .delete(trackerRoute.deleteOne);
 
 
 export default router;
