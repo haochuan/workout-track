@@ -4,7 +4,7 @@ import './style.css';
 
 
 
-export class Login extends Component {
+export class Home extends Component {
   constructor(props) {
     super(props);
   }
@@ -16,13 +16,13 @@ export class Login extends Component {
   render() {
     return (
       <div>
-        Login Page
+        Home Page
       </div>
     );
   }
 }
 
-Login.propTypes = {
+Home.propTypes = {
 
 };
 
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => ({
   status: state.status
 });
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(Home);
