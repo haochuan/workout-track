@@ -18,10 +18,13 @@ function loadingEnd() {
 
 export function loading() {
   return ((dispatch, getState) => {
-    dispatch(loadingStart());
-    setTimeout(() => {
-      dispatch(loadingEnd());
-    }, 3000);
+    const isLoading = getState().status.isLoading;
+    if (isLoading !== 'loaded') {
+      dispatch(loadingStart());
+      setTimeout(() => {
+        dispatch(loadingEnd());
+      }, 3000);
+    }
   });
 }
 

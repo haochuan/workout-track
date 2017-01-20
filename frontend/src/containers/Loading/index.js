@@ -4,8 +4,6 @@ import Spinner from 'react-spinkit';
 import { loading } from '../../actions/loading';
 import './style.css';
 
-import Login from '../Login';
-
 export class Loading extends Component {
   constructor(props) {
     super(props);
@@ -18,23 +16,17 @@ export class Loading extends Component {
 
   render() {
     const { status } = this.props;
-    let content;
-    if (status.isLoading) {
-      content = (
+    if (status.isLoading && status.isLoading !== 'loaded') {
+      return (
         <div className="spinner-wrapper">
           <Spinner spinnerName="three-bounce" />
         </div>
       );
     } else {
-      content = (
-        <Login />
+      return (
+        <div>{this.props.children}</div>
       );
     }
-    return (
-      <div className="main">
-         {content}
-      </div>
-    );
   }
 }
 

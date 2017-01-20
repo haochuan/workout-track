@@ -13,29 +13,29 @@ router.route('/signup')
 router.route('/login')
   .post(userRoute.login);
 
-router.route('/api/exercise')
+router.route('/exercise')
   .get(exerciseRoute.findAll)
   .post(exerciseRoute.createOne);
 
-router.route('/api/exercise/:exerciseId')
+router.route('/exercise/:exerciseId')
   .get(exerciseRoute.findById)
   .put(exerciseRoute.updateOne)
   .delete(exerciseRoute.deleteOne);
 
-router.route('/api/workout')
+router.route('/workout')
   .get(workoutRoute.findAll)
   .post(workoutRoute.createOne);
 
-router.route('/api/workout/:workoutId')
+router.route('/workout/:workoutId')
   .get(workoutRoute.findById)
   .put(workoutRoute.updateOne)
   .delete(workoutRoute.deleteOne);
 
-  router.route('/api/tracker')
+  router.route('/tracker')
   .get(trackerRoute.findAll)
   .post(trackerRoute.createOne);
 
-router.route('/api/tracker/:trackerId')
+router.route('/tracker/:trackerId')
   .get(trackerRoute.findById)
   .put(trackerRoute.updateOne)
   .delete(trackerRoute.deleteOne);

@@ -6,7 +6,7 @@
 import * as ActionTypes from '../constants/actionTypes';
 
 const initState = {
-  isLoading: true
+  isLoading: false
 };
 
 export default function status(state = initState, action) {
@@ -19,7 +19,7 @@ export default function status(state = initState, action) {
     case ActionTypes.LOADING_END:
       return {
         ...state,
-        isLoading: false
+        isLoading: 'loaded'
       };
     default:
       return state;

@@ -92,6 +92,6 @@ const server = app.listen(port, function() {
 });
 
 // Routes
-app.use('/', routes);
+app.use('/api', routes);
 
 export default app;

@@ -7,11 +7,15 @@
 import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
 import Loading from './Loading';
+import App from './App';
 
 const routes = (
   <Router history={hashHistory}>
-    <Route name="home" path="/" component={Loading}>
-      
+    <Route component={Loading}>
+      <Route name="app" path="/" component={App} />
+      <Route name="app" path="/login" component={App} />
+
+
     </Route>
   </Router>
 );
