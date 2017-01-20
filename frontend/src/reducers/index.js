@@ -5,13 +5,11 @@
  */
 
 import { combineReducers } from 'redux';
-import counter from './counter';
-import dribbble from './dribbble';
+import status from './status';
 
 
 const reducer = combineReducers({
-  counter,
-  dribbble
+  status,
 });
 
 export default reducer;

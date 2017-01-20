@@ -10,6 +10,8 @@ import { Provider } from 'react-redux';
 import routes from '../routes';
 import style from './style.css';
 
+import 'antd-mobile/dist/antd-mobile.min.css';
+
 const Root = ({ store }) => (
   <Provider store={store}>
     { routes }

@@ -1,0 +1,10 @@
+.main {
+  height: 100vh;
+}
+
+.spinner-wrapper {
+  position: absolute;
+  top: 40vh;
+  width: 100%;
+  text-align: center;
+}

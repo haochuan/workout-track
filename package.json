@@ -40,6 +40,7 @@
     "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
+    "antd-mobile": "^0.9.14",
     "autoprefixer": "^6.3.7",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
@@ -80,6 +81,7 @@
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.1",
+    "react-spinkit": "^1.1.11",
     "react-transform-hmr": "^1.0.4",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",

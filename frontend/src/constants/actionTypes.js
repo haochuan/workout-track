@@ -4,8 +4,7 @@
  *
  */
 
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
-export const STORE_DATA = 'STORE_DATA';
+export const LOADING_START = 'LOADING_START';
+export const LOADING_END = 'LOADING_END';
 
 
