@@ -12,8 +12,9 @@ import { Router, Route, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 
 import App from './containers/App';
+import Loading from './containers/Loading';
 import Login from './containers/Login';
-import Home from './containers/Home';
+import Workout from './containers/Workout';
 
 const store = configureStore();
 const rootEl = document.getElementById('root');
@@ -21,13 +22,11 @@ const rootEl = document.getElementById('root');
 function checkAuth(nextState, replace) {
   let { isAuthenticated } = store.getState().status;
 
-  if (nextState.location.pathname === '/') {
+  if (nextState.location.pathname !== '/login' && nextState.location.pathname !== '/signup') {
     if (!isAuthenticated) {
       replace({pathname: '/login'});
     }
-  }
-
-  if (nextState.location.pathname === '/login' || nextState.location.pathname === '/signup' ) {
+  } else {
     if (isAuthenticated) {
       replace({pathname: '/'});
     }
@@ -38,8 +37,10 @@ function render() {
   ReactDOM.render(
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route component={App}>
-          <Route path="/" onEnter={checkAuth} component={Home} />
+        <Route component={Loading}>
+          <Route path="/" onEnter={checkAuth} component={App}>
+            <Route path="/workout" onEnter={checkAuth} component={Workout} />
+          </Route>
           <Route path="/login" onEnter={checkAuth} component={Login} />
         </Route>
       </Router>

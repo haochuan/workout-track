@@ -4,7 +4,7 @@ import './style.css';
 
 
 
-export class Home extends Component {
+export class Workout extends Component {
   constructor(props) {
     super(props);
   }
@@ -16,13 +16,13 @@ export class Home extends Component {
   render() {
     return (
       <div>
-        Home Page
+        Workout Page
       </div>
     );
   }
 }
 
-Home.propTypes = {
+Workout.propTypes = {
 
 };
 
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => ({
   status: state.status
 });
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Workout);

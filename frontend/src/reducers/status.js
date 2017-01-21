@@ -7,7 +7,7 @@ import * as ActionTypes from '../constants/actionTypes';
 
 const initState = {
   isLoading: false,
-  isAuthenticated: true
+  isAuthenticated: false
 };
 
 export default function status(state = initState, action) {
