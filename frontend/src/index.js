@@ -14,6 +14,7 @@ import { Provider } from 'react-redux';
 import App from './containers/App';
 import Loading from './containers/Loading';
 import Login from './containers/Login';
+import Signup from './containers/Signup';
 import Workout from './containers/Workout';
 
 const store = configureStore();
@@ -42,6 +43,7 @@ function render() {
             <Route path="/workout" onEnter={checkAuth} component={Workout} />
           </Route>
           <Route path="/login" onEnter={checkAuth} component={Login} />
+          <Route path="/signup" onEnter={checkAuth} component={Signup} />
         </Route>
       </Router>
     </Provider>,

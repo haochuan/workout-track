@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import './style.css';
 const FormItem = Form.Item;
@@ -17,10 +18,14 @@ const LoginForm = Form.create()(React.createClass({
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
-          {getFieldDecorator('userName', {
-            rules: [{ required: true, message: 'Please input your username!' }],
+          {getFieldDecorator('email', {
+            rules: [{
+              type: 'email', message: 'The input is not valid E-mail!',
+            }, {
+              required: true, message: 'Please input your E-mail!',
+            }],
           })(
-            <Input className="loginForm-input" addonBefore={<Icon type="user" />} placeholder="Username" />
+            <Input className="loginForm-input" addonBefore={<Icon type="user" />} placeholder="Email" />
           )}
         </FormItem>
         <FormItem>
@@ -35,7 +40,9 @@ const LoginForm = Form.create()(React.createClass({
             Log in
           </Button>
             <div className="loginFrom-createAccount-wrapper">
-              <a className="loginFrom-text-createAccount">register now!</a>
+              <Link to='/signup' className="loginFrom-text-createAccount">
+                Register now!
+              </Link>
             </div>
         </FormItem>
       </Form>
