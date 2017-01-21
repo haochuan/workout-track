@@ -1,6 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+
+import LoginForm from '../../components/LoginForm';
 import './style.css';
+
+
+
 
 
 
@@ -15,8 +20,10 @@ export class Login extends Component {
 
   render() {
     return (
-      <div>
-        Login Page
+      <div className="loginForm-background">
+        <div className="loginForm-wrapper">
+          <LoginForm />
+        </div>
       </div>
     );
   }

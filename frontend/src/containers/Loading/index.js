@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Spinner from 'react-spinkit';
+import { Layout } from 'antd';
 import { loading } from '../../actions/loading';
 import './style.css';
 
@@ -19,15 +19,18 @@ export class Loading extends Component {
     const { status } = this.props;
     if (status.isLoading && status.isLoading !== 'loaded') {
       return (
-        <div className="spinner-wrapper">
-          <Spinner spinnerName="three-bounce" />
-        </div>
+        <Layout className='loader-wrapper'>
+          <div className="loader">
+            <div className="loader-box"></div>
+            <div className="loader-hill"></div>
+          </div>
+        </Layout>
       );
     } else {
       return (
-        <div className="full-height">
+        <Layout className='full-height'>
           {this.props.children}
-        </div>
+        </Layout>
       );
     }
   }
