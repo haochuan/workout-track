@@ -25,6 +25,7 @@
   "author": "haochuan",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.15.3",
     "bluebird": "^3.4.1",
     "body-parser": "^1.15.2",
     "cors": "^2.7.1",

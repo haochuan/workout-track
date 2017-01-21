@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Layout } from 'antd';
+import { message, Layout } from 'antd';
 import './style.css';
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -11,7 +11,9 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    
+    // if (this.props.message) {
+    //   message.info(this.props.message);
+    // }
   }
 
   render() {
@@ -32,7 +34,8 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  status: state.status
+  status: state.status,
+  message: state.message
 });
 
 export default connect(mapStateToProps)(App);
