@@ -14,7 +14,7 @@ const SignupForm = Form.create()(React.createClass({
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        this.props.signupHandler(values.email, values.password);
       }
     });
   },

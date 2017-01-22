@@ -11,6 +11,7 @@ const userRoute = {
       if (err) {
         res.status(500).send(err);
       } else {
+        console.log(data);
         res.status(200).send({
           status: 'SUCCESS',
           data: data

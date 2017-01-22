@@ -5,7 +5,7 @@ import * as ActionTypes from '../constants/actionTypes';
 
 export function login(email, password) {
   return ((dispatch, getState) => {
-    fetch.post('/login', {
+    fetch.post('/api/login', {
       email: email,
       password: password
     })
@@ -18,6 +18,27 @@ export function login(email, password) {
         } else if (error.response.status === 500) {
           dispatch(sendMessage('Wrong Password', 'error'));
         }
+      }
+    });
+  });
+}
+
+export function signup(email, password) {
+  return ((dispatch, getState) => {
+    fetch.post('/api/signup', {
+      email: email,
+      password: password
+    })
+    .then(function (response) {
+      if (response.status === 200) {
+        dispatch(sendMessage('Signup Successfully', 'success'));
+      }
+    })
+    .catch(function (error) {
+      if (error.response && error.response.status === 500) {
+        dispatch(sendMessage('Email Already Existed', 'error'));
+      } else {
+        dispatch(sendMessage('Failed to signup', 'error'));
       }
     });
   });
