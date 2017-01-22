@@ -23,7 +23,6 @@ export class App extends Component {
 
   menuHandler(menu) {
     const key = Number(menu.key);
-    console.log(key);
     switch (key) {
       case 1:
         window.location = '/#/workout';

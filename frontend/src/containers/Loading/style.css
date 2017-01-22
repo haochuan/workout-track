@@ -8,6 +8,7 @@
   /*top: 5px;*/
   border-radius: 0px;
   width: 100vw;
+  z-index: 9999;
 }
 
 .full-height {

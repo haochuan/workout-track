@@ -30,7 +30,7 @@ export function login(email, password) {
     .then(function (response) {
       dispatch(saveLogin(response.data));
       dispatch(sendMessage('Successful', 'success'));
-      window.location = '/';
+      window.location = '/#/workout';
     })
     .catch(function (error) {
       if (error.response) {
