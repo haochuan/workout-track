@@ -41,6 +41,7 @@
     "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
+    "antd-mobile": "^0.9.14",
     "autoprefixer": "^6.3.7",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
