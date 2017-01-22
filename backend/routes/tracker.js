@@ -16,10 +16,7 @@ const trackerRoute = {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send({
-          status: 'SUCCESS',
-          data: data
-        });
+        res.status(200).send(data);
       }
     });
   },
@@ -30,10 +27,7 @@ const trackerRoute = {
         res.status(500).send(err);
       } else {
         if (tracker) {
-          res.status(200).send({
-            status: 'SUCCESS',
-            data: tracker
-          });
+          res.status(200).send(tracker);
         } else {
           res.status(404).send({
             status: 'NOTFOUND',
@@ -49,10 +43,7 @@ const trackerRoute = {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send({
-          status: 'SUCCESS',
-          data: tracker
-        });
+        res.status(200).send(tracker);
       }
     });
   },
@@ -72,10 +63,7 @@ const trackerRoute = {
             if (err) {
               res.status(500).send(err);
             } else {
-              res.status(200).send({
-                status: 'SUCCESS',
-                data: data
-              });
+              res.status(200).send(data);
             }
           });
         } else {
@@ -94,10 +82,7 @@ const trackerRoute = {
         res.status(500).send(err);
       } else {
         if (tracker && tracker.result && tracker.result.ok === 1 && tracker.result.n === 1) {
-          res.status(200).send({
-            status: 'SUCCESS',
-            data: tracker
-          });
+          res.status(200).send(tracker);
         } else {
           res.status(404).send({
             status: 'NOTFOUND',

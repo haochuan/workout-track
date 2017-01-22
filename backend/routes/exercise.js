@@ -16,10 +16,7 @@ const exerciseRoute = {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send({
-          status: 'SUCCESS',
-          data: data
-        });
+        res.status(200).send(data);
       }
     });
   },
@@ -30,10 +27,7 @@ const exerciseRoute = {
         res.status(500).send(err);
       } else {
         if (exercise) {
-          res.status(200).send({
-            status: 'SUCCESS',
-            data: exercise
-          });
+          res.status(200).send(exercise);
         } else {
           res.status(404).send({
             status: 'NOTFOUND',
@@ -49,10 +43,7 @@ const exerciseRoute = {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send({
-          status: 'SUCCESS',
-          data: exercise
-        });
+        res.status(200).send(exercise);
       }
     });
   },
@@ -72,10 +63,7 @@ const exerciseRoute = {
             if (err) {
               res.status(500).send(err);
             } else {
-              res.status(200).send({
-                status: 'SUCCESS',
-                data: data
-              });
+              res.status(200).send(data);
             }
           });
         } else {
@@ -94,10 +82,7 @@ const exerciseRoute = {
         res.status(500).send(err);
       } else {
         if (exercise && exercise.result && exercise.result.ok === 1 && exercise.result.n === 1) {
-          res.status(200).send({
-            status: 'SUCCESS',
-            data: exercise
-          });
+          res.status(200).send(exercise);
         } else {
           res.status(404).send({
             status: 'NOTFOUND',

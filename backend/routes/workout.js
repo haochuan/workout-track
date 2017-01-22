@@ -13,10 +13,7 @@ const workoutRoute = {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send({
-          status: 'SUCCESS',
-          data: data
-        });
+        res.status(200).send(data);
       }
     });
   },
@@ -27,10 +24,7 @@ const workoutRoute = {
         res.status(500).send(err);
       } else {
         if (workout) {
-          res.status(200).send({
-            status: 'SUCCESS',
-            data: workout
-          });
+          res.status(200).send(workout);
         } else {
           res.status(404).send({
             status: 'NOTFOUND',
@@ -46,10 +40,7 @@ const workoutRoute = {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send({
-          status: 'SUCCESS',
-          data: workout
-        });
+        res.status(200).send(workout);
       }
     });
   },
@@ -89,10 +80,7 @@ const workoutRoute = {
             if (err) {
               res.status(500).send(err);
             } else {
-              res.status(200).send({
-                status: 'SUCCESS',
-                data: data
-              });
+              res.status(200).send(data);
             }
           });
         } else {
@@ -111,10 +99,7 @@ const workoutRoute = {
         res.status(500).send(err);
       } else {
         if (workout && workout.result && workout.result.ok === 1 && workout.result.n === 1) {
-          res.status(200).send({
-            status: 'SUCCESS',
-            data: workout
-          });
+          res.status(200).send(workout);
         } else {
           res.status(404).send({
             status: 'NOTFOUND',

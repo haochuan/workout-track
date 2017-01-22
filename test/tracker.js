@@ -26,9 +26,8 @@ describe('Tracker Test Suites', () => {
       .get('/api/tracker')
       .end((err, res) => {
           res.should.have.status(200);
-          res.body.status.should.equal('SUCCESS');
-          res.body.data.should.be.a('array');
-          res.body.data.length.should.equal(0);
+          res.body.should.be.a('array');
+          res.body.length.should.equal(0);
         done();
       });
     });
@@ -62,14 +61,13 @@ describe('Tracker Test Suites', () => {
           .send(tracker)
           .end((err, res) => {
             res.should.have.status(200);
-            res.body.status.should.equal('SUCCESS');
-            res.body.data.should.be.a('object');
-            res.body.data.setOrder.should.equal(tracker.setOrder);
-            res.body.data.reps.should.equal(tracker.reps);
-            res.body.data.weights.should.equal(tracker.weights);
-            res.body.data.level.should.equal(1);
-            res.body.data.exerciseId.should.equal(tracker.exerciseId);
-            res.body.data.userId.should.equal(tracker.userId);
+            res.body.should.be.a('object');
+            res.body.setOrder.should.equal(tracker.setOrder);
+            res.body.reps.should.equal(tracker.reps);
+            res.body.weights.should.equal(tracker.weights);
+            res.body.level.should.equal(1);
+            res.body.exerciseId.should.equal(tracker.exerciseId);
+            res.body.userId.should.equal(tracker.userId);
             done();
           });
       });
@@ -105,14 +103,13 @@ describe('Tracker Test Suites', () => {
           .send(tracker)
           .end((err, res) => {
             res.should.have.status(200);
-            res.body.status.should.equal('SUCCESS');
-            res.body.data.should.be.a('object');
-            res.body.data.setOrder.should.equal(tracker.setOrder);
-            res.body.data.reps.should.equal(tracker.reps);
-            res.body.data.weights.should.equal(tracker.weights);
-            res.body.data.level.should.equal(1);
-            res.body.data.exerciseId.should.equal(tracker.exerciseId);
-            res.body.data.userId.should.equal(tracker.userId);
+            res.body.should.be.a('object');
+            res.body.setOrder.should.equal(tracker.setOrder);
+            res.body.reps.should.equal(tracker.reps);
+            res.body.weights.should.equal(tracker.weights);
+            res.body.level.should.equal(1);
+            res.body.exerciseId.should.equal(tracker.exerciseId);
+            res.body.userId.should.equal(tracker.userId);
             done();
           });
       });
@@ -130,14 +127,13 @@ describe('Tracker Test Suites', () => {
           .send(tracker)
           .end((err, res) => {
             res.should.have.status(200);
-            res.body.status.should.equal('SUCCESS');
-            res.body.data.should.be.a('object');
-            res.body.data.setOrder.should.equal(tracker.setOrder);
-            res.body.data.reps.should.equal(tracker.reps);
-            res.body.data.weights.should.equal(tracker.weights);
-            res.body.data.level.should.equal(1);
-            res.body.data.exerciseId.should.equal(tracker.exerciseId);
-            res.body.data.userId.should.equal(tracker.userId);
+            res.body.should.be.a('object');
+            res.body.setOrder.should.equal(tracker.setOrder);
+            res.body.reps.should.equal(tracker.reps);
+            res.body.weights.should.equal(tracker.weights);
+            res.body.level.should.equal(1);
+            res.body.exerciseId.should.equal(tracker.exerciseId);
+            res.body.userId.should.equal(tracker.userId);
             done();
           });
       });
@@ -162,15 +158,14 @@ describe('Tracker Test Suites', () => {
           .get('/api/tracker/' + tracker.id)
           .end((err, res) => {
             res.should.have.status(200);
-            res.body.status.should.equal('SUCCESS');
-            res.body.data.should.be.a('object');
-            res.body.data.setOrder.should.equal(tracker.setOrder);
-            res.body.data.reps.should.equal(tracker.reps);
-            res.body.data.weights.should.equal(tracker.weights);
-            res.body.data.level.should.equal(1);
-            res.body.data._id.should.equal(tracker.id);
-            res.body.data.exerciseId.should.equal(tracker.exerciseId.toString());
-            res.body.data.userId.should.equal(tracker.userId.toString());
+            res.body.should.be.a('object');
+            res.body.setOrder.should.equal(tracker.setOrder);
+            res.body.reps.should.equal(tracker.reps);
+            res.body.weights.should.equal(tracker.weights);
+            res.body.level.should.equal(1);
+            res.body._id.should.equal(tracker.id);
+            res.body.exerciseId.should.equal(tracker.exerciseId.toString());
+            res.body.userId.should.equal(tracker.userId.toString());
             done();
           });
         });
@@ -213,15 +208,14 @@ describe('Tracker Test Suites', () => {
           .send(updateInfo)
           .end((err, res) => {
             res.should.have.status(200);
-            res.body.status.should.equal('SUCCESS');
-            res.body.data.should.be.a('object');
-            res.body.data.setOrder.should.equal(updateInfo.setOrder);
-            res.body.data.reps.should.equal(updateInfo.reps);
-            res.body.data.weights.should.equal(updateInfo.weights);
-            res.body.data.level.should.equal(updateInfo.level);
-            res.body.data._id.should.equal(tracker.id);
-            res.body.data.exerciseId.should.equal(tracker.exerciseId.toString());
-            res.body.data.userId.should.equal(tracker.userId.toString());
+            res.body.should.be.a('object');
+            res.body.setOrder.should.equal(updateInfo.setOrder);
+            res.body.reps.should.equal(updateInfo.reps);
+            res.body.weights.should.equal(updateInfo.weights);
+            res.body.level.should.equal(updateInfo.level);
+            res.body._id.should.equal(tracker.id);
+            res.body.exerciseId.should.equal(tracker.exerciseId.toString());
+            res.body.userId.should.equal(tracker.userId.toString());
             done();
           });
         });
@@ -257,10 +251,9 @@ describe('Tracker Test Suites', () => {
           .delete('/api/tracker/' + tracker.id)
           .end((err, res) => {
             res.should.have.status(200);
-            res.body.status.should.equal('SUCCESS');
-            res.body.data.should.be.a('object');
-            res.body.data.should.have.property('ok', 1);
-            res.body.data.should.have.property('n', 1);
+            res.body.should.be.a('object');
+            res.body.should.have.property('ok', 1);
+            res.body.should.have.property('n', 1);
             done();
           });
         });

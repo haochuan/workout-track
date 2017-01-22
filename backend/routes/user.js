@@ -12,10 +12,7 @@ const userRoute = {
         res.status(500).send(err);
       } else {
         console.log(data);
-        res.status(200).send({
-          status: 'SUCCESS',
-          data: data
-        });
+        res.status(200).send(data);
       }
     });
   },
@@ -27,10 +24,7 @@ const userRoute = {
       } else {
         if (user) {
           if (user.password === req.body.password) {
-            res.status(200).send({
-              status: 'SUCCESS',
-              data: user
-            });
+            res.status(200).send(user);
           } else {
             res.status(500).send({
               status: 'ERROR',

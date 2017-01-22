@@ -26,9 +26,8 @@ describe('Workout Test Suites', () => {
       .get('/api/workout')
       .end((err, res) => {
           res.should.have.status(200);
-          res.body.status.should.equal('SUCCESS');
-          res.body.data.should.be.a('array');
-          res.body.data.length.should.equal(0);
+          res.body.should.be.a('array');
+          res.body.length.should.equal(0);
         done();
       });
     });
@@ -60,11 +59,10 @@ describe('Workout Test Suites', () => {
           .send(workout)
           .end((err, res) => {
             res.should.have.status(200);
-            res.body.status.should.equal('SUCCESS');
-            res.body.data.should.be.a('object');
-            moment(res.body.data.date).utc().format('YYYY-MM-DD').should.equal(moment(workout.date).utc().format('YYYY-MM-DD'));
-            res.body.data.name.should.equal(workout.name);
-            res.body.data.userId.should.equal(workout.userId);
+            res.body.should.be.a('object');
+            moment(res.body.date).utc().format('YYYY-MM-DD').should.equal(moment(workout.date).utc().format('YYYY-MM-DD'));
+            res.body.name.should.equal(workout.name);
+            res.body.userId.should.equal(workout.userId);
             done();
           });
       });
@@ -95,11 +93,10 @@ describe('Workout Test Suites', () => {
           .send(workout)
           .end((err, res) => {
             res.should.have.status(200);
-            res.body.status.should.equal('SUCCESS');
-            res.body.data.should.be.a('object');
-            moment(res.body.data.date).utc().format('YYYY-MM-DD').should.equal(moment(workout.date).utc().format('YYYY-MM-DD'));
-            res.body.data.name.should.equal(workout.name);
-            res.body.data.userId.should.equal(workout.userId);
+            res.body.should.be.a('object');
+            moment(res.body.date).utc().format('YYYY-MM-DD').should.equal(moment(workout.date).utc().format('YYYY-MM-DD'));
+            res.body.name.should.equal(workout.name);
+            res.body.userId.should.equal(workout.userId);
             done();
           });
       });
@@ -115,11 +112,10 @@ describe('Workout Test Suites', () => {
           .send(workout)
           .end((err, res) => {
             res.should.have.status(200);
-            res.body.status.should.equal('SUCCESS');
-            res.body.data.should.be.a('object');
-            moment(res.body.data.date).utc().format('YYYY-MM-DD').should.equal(moment(workout.date).utc().format('YYYY-MM-DD'));
-            res.body.data.name.should.equal(workout.name);
-            res.body.data.userId.should.equal(workout.userId);
+            res.body.should.be.a('object');
+            moment(res.body.date).utc().format('YYYY-MM-DD').should.equal(moment(workout.date).utc().format('YYYY-MM-DD'));
+            res.body.name.should.equal(workout.name);
+            res.body.userId.should.equal(workout.userId);
             done();
           });
       });
@@ -141,12 +137,11 @@ describe('Workout Test Suites', () => {
           .get('/api/workout/' + workout.id)
           .end((err, res) => {
             res.should.have.status(200);
-            res.body.status.should.equal('SUCCESS');
-            res.body.data.should.be.a('object');
-            moment(res.body.data.date).utc().format('YYYY-MM-DD').should.equal(moment(workout.date).utc().format('YYYY-MM-DD'));
-            res.body.data.name.should.equal(workout.name);
-            res.body.data._id.should.equal(workout.id);
-            res.body.data.userId.should.equal(workout.userId.toString());
+            res.body.should.be.a('object');
+            moment(res.body.date).utc().format('YYYY-MM-DD').should.equal(moment(workout.date).utc().format('YYYY-MM-DD'));
+            res.body.name.should.equal(workout.name);
+            res.body._id.should.equal(workout.id);
+            res.body.userId.should.equal(workout.userId.toString());
             done();
           });
         });
@@ -184,12 +179,11 @@ describe('Workout Test Suites', () => {
           .send(updateInfo)
           .end((err, res) => {
             res.should.have.status(200);
-            res.body.status.should.equal('SUCCESS');
-            res.body.data.should.be.a('object');
-            moment(res.body.data.date).utc().format('YYYY-MM-DD').should.equal(moment(updateInfo.date).utc().format('YYYY-MM-DD'));
-            res.body.data.name.should.equal(updateInfo.name);
-            res.body.data._id.should.equal(workout.id);
-            res.body.data.userId.should.equal(workout.userId.toString());
+            res.body.should.be.a('object');
+            moment(res.body.date).utc().format('YYYY-MM-DD').should.equal(moment(updateInfo.date).utc().format('YYYY-MM-DD'));
+            res.body.name.should.equal(updateInfo.name);
+            res.body._id.should.equal(workout.id);
+            res.body.userId.should.equal(workout.userId.toString());
             done();
           });
         });
@@ -222,10 +216,9 @@ describe('Workout Test Suites', () => {
           .delete('/api/workout/' + workout.id)
           .end((err, res) => {
             res.should.have.status(200);
-            res.body.status.should.equal('SUCCESS');
-            res.body.data.should.be.a('object');
-            res.body.data.should.have.property('ok', 1);
-            res.body.data.should.have.property('n', 1);
+            res.body.should.be.a('object');
+            res.body.should.have.property('ok', 1);
+            res.body.should.have.property('n', 1);
             done();
           });
         });
