@@ -35,9 +35,9 @@ export function login(email, password) {
     .catch(function (error) {
       if (error.response) {
         if (error.response.status === 404) {
-          dispatch(sendMessage('User Not Found', 'error'));
+          dispatch(sendMessage('User Not Found', 'fail'));
         } else if (error.response.status === 500) {
-          dispatch(sendMessage('Wrong Password', 'error'));
+          dispatch(sendMessage('Wrong Password', 'fail'));
         }
       }
     });
@@ -57,9 +57,9 @@ export function signup(email, password) {
     })
     .catch(function (error) {
       if (error.response && error.response.status === 500) {
-        dispatch(sendMessage('Email Already Existed', 'error'));
+        dispatch(sendMessage('Email Already Existed', 'fail'));
       } else {
-        dispatch(sendMessage('Failed to signup', 'error'));
+        dispatch(sendMessage('Failed to signup', 'fail'));
       }
     });
   });

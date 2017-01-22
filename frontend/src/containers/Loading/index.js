@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Alert, Layout } from 'antd';
+import Toast from 'antd-mobile/lib/toast';
+
 import { loading } from '../../actions/loading';
 import './style.css';
 
@@ -15,27 +16,28 @@ export class Loading extends Component {
     dispatch(loading());
   }
 
+  componentDidUpdate() {
+    if (this.props.message.content) {
+      Toast[this.props.message.messageType](this.props.message.content);
+    }
+  }
+
   render() {
     const { status } = this.props;
-    let alertMessage = this.props.message.content ?
-                       (<Alert className="top-message" message={this.props.message.content} type={this.props.message.messageType} />) :
-                      null;
     if (status.isLoading && status.isLoading !== 'loaded') {
       return (
-        <Layout className='loader-wrapper'>
-          {alertMessage}
+        <div className='loader-wrapper'>
           <div className="loader">
             <div className="loader-box"></div>
             <div className="loader-hill"></div>
           </div>
-        </Layout>
+        </div>
       );
     } else {
       return (
-        <Layout className='full-height'>
-          {alertMessage}
+        <div className='full-height'>
           {this.props.children}
-        </Layout>
+        </div>
       );
     }
   }

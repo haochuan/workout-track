@@ -11,6 +11,8 @@ import { configureStore } from './configureStore';
 import { Router, Route, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 
+import 'antd-mobile/dist/antd-mobile.min.css';
+
 import App from './containers/App';
 import Loading from './containers/Loading';
 import Login from './containers/Login';
