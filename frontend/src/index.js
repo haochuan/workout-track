@@ -15,7 +15,7 @@ import App from './containers/App';
 import Loading from './containers/Loading';
 import Login from './containers/Login';
 import Signup from './containers/Signup';
-import Workout from './containers/Workout';
+import Main from './containers/Main';
 
 const store = configureStore();
 const rootEl = document.getElementById('root');
@@ -39,8 +39,8 @@ function render() {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route component={Loading}>
-          <Route path="/" onEnter={checkAuth} component={App}>
-            <Route path="/workout" onEnter={checkAuth} component={Workout} />
+          <Route onEnter={checkAuth} component={App}>
+            <Route path="/" onEnter={checkAuth} component={Main} />
           </Route>
           <Route path="/login" onEnter={checkAuth} component={Login} />
           <Route path="/signup" onEnter={checkAuth} component={Signup} />

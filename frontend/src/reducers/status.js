@@ -27,6 +27,11 @@ export default function status(state = initState, action) {
         ...state,
         isAuthenticated: true
       };
+    case ActionTypes.LOGOUT:
+      return {
+        ...state,
+        isAuthenticated: false
+      };
     default:
       return state;
   }

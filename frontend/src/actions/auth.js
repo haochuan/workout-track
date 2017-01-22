@@ -12,6 +12,15 @@ function saveLogin(profile) {
   });
 }
 
+export function logout(callback) {
+  return ((dispatch, getState) => {
+    dispatch({
+      type: ActionTypes.LOGOUT
+    });
+    window.location = '/';
+  });
+}
+
 export function login(email, password) {
   return ((dispatch, getState) => {
     fetch.post('/api/login', {
@@ -19,9 +28,9 @@ export function login(email, password) {
       password: password
     })
     .then(function (response) {
-      console.log(response);
       dispatch(saveLogin(response.data));
       dispatch(sendMessage('Successful', 'success'));
+      window.location = '/';
     })
     .catch(function (error) {
       if (error.response) {
