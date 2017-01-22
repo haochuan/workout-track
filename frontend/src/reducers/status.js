@@ -22,6 +22,11 @@ export default function status(state = initState, action) {
         ...state,
         isLoading: 'loaded'
       };
+    case ActionTypes.LOGIN:
+      return {
+        ...state,
+        isAuthenticated: true
+      };
     default:
       return state;
   }

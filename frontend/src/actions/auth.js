@@ -3,6 +3,15 @@ import fetch from 'axios';
 import { sendMessage } from './message';
 import * as ActionTypes from '../constants/actionTypes';
 
+function saveLogin(profile) {
+  return ((dispatch, getState) => {
+    dispatch({
+      type: ActionTypes.LOGIN,
+      profile: profile
+    });
+  });
+}
+
 export function login(email, password) {
   return ((dispatch, getState) => {
     fetch.post('/api/login', {
@@ -10,6 +19,9 @@ export function login(email, password) {
       password: password
     })
     .then(function (response) {
+      console.log(response);
+      dispatch(saveLogin(response.data));
+      dispatch(sendMessage('Successful', 'success'));
     })
     .catch(function (error) {
       if (error.response) {
