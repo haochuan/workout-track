@@ -1,5 +1,5 @@
 .main {
-  height: 100vh;
+  height: 100%;
 }
 
 .spinner-wrapper {
@@ -10,7 +10,7 @@
 }
 
 .full-height {
-  height: 100vh;
+  height: 100%;
 }
 
 .app-navbar {

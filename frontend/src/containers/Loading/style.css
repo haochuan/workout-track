@@ -1,6 +1,6 @@
 .loader-wrapper {
   background-color: #404456;
-  height: 100vh;
+  height: 100%;
 }
 
 .top-message {
@@ -12,7 +12,7 @@
 }
 
 .full-height {
-  height: 100vh;
+  height: 100%;
 }
 
 .loader {
