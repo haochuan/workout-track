@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
+
+import DateView from '../../components/DateView';
 import './style.css';
 
 
@@ -12,8 +14,11 @@ export class Workout extends Component {
 
   render() {
     return (
-      <div>
-        Workout Page 
+      <div className='page-container'>
+        <DateView />
+        <DateView />
+        <DateView />
+        <DateView />
       </div>
     );
   }

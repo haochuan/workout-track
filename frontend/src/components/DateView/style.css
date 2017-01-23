@@ -1,0 +1,12 @@
+.dateView-title {
+  font-size: 28px;
+}
+
+.dateView-container {
+  height: 200px;
+  padding: 15px;
+}
+
+.dateView-content {
+  margin-top: 10px;
+}

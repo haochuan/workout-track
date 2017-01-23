@@ -1,0 +1,12 @@
+.addNew-container {
+  height: 120px;
+  width: 150px;
+  background-color: #F8F8F8;
+}
+
+.addNew-addImage {
+  width: 40px;
+  height: 40px;
+  margin-top: 40px;
+  margin-left: 55px;
+}

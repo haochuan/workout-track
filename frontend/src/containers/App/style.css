@@ -15,6 +15,9 @@
 
 .app-navbar {
   color: rgb(102, 102, 102);
-  background-color: #f5f5f9;
+  background-color: #FAFAFA;
   border-bottom: 1px solid rgb(217, 217, 217);
+  position: fixed;
+  width: 100%;
+  top: 0px;
 }

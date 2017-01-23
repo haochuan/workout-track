@@ -82,7 +82,8 @@ output: {
       { 
         test: /\.scss$/,
         loader: 'style!css!postcss!sass'
-      }
+      },
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' }
 
     ]
   },
