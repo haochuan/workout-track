@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import Title from '../../components/Title';
+import AppCard from '../../components/AppCard';
 
 import './style.css';
 
@@ -14,10 +14,14 @@ export class Library extends Component {
 
   render() {
     return (
-      <div>
-        <Title title={'Workout'} />
-        <hr/>
-        <Title title={'Exercise'} />
+      <div className="app-container">
+        <AppCard title={'Workout'} addNew={(() => {return 0})}>
+        </AppCard>
+        <br />
+        <br />
+        <hr />
+        <AppCard title={'Exercise'} addNew={(() => {return 0})}>
+        </AppCard>
       </div>
     );
   }

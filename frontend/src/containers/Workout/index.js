@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 
-import DateView from '../../components/DateView';
+import AppCard from '../../components/AppCard';
 import './style.css';
 
 
@@ -15,10 +15,10 @@ export class Workout extends Component {
   render() {
     return (
       <div className='app-container'>
-        <DateView />
-        <DateView />
-        <DateView />
-        <DateView />
+        <AppCard title={'Today'} addNew={(() => {return 0})}>
+        </AppCard>
+        <AppCard title={'Tomorrow'} addNew={(() => {return 0})}>
+        </AppCard>
       </div>
     );
   }
