@@ -3,9 +3,9 @@ import './style.css';
 
 import icon_add from '../../asserts/icn_add.png';
 
-const AddNew = () => (
+const AddNew = ({addNew}) => (
   <div className="addNew-container">
-    <img className="addNew-addImage" src={icon_add}/>
+    <img className="addNew-addImage" src={icon_add} onClick={addNew}/>
   </div>
 );
 

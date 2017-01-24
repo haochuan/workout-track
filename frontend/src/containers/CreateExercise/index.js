@@ -5,7 +5,7 @@ import './style.css';
 
 
 
-export class Exercise extends Component {
+export class CreateExercise extends Component {
   constructor(props) {
     super(props);
   }
@@ -13,13 +13,13 @@ export class Exercise extends Component {
   render() {
     return (
       <div>
-        Exercise Page 
+        CreateExercise Page 
       </div>
     );
   }
 }
 
-Exercise.propTypes = {
+CreateExercise.propTypes = {
 
 };
 
@@ -27,4 +27,4 @@ const mapStateToProps = (state) => ({
   status: state.status
 });
 
-export default connect(mapStateToProps)(Exercise);
+export default connect(mapStateToProps)(CreateExercise);

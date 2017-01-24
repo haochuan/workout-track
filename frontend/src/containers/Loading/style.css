@@ -11,10 +11,6 @@
   z-index: 9999;
 }
 
-.full-height {
-  height: 100%;
-}
-
 .loader {
   position: absolute;
   top: 50%;

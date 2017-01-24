@@ -4,6 +4,7 @@ import TabBar from 'antd-mobile/lib/tab-bar';
 import NavBar from 'antd-mobile/lib/nav-bar';
 
 import Workout from '../Workout';
+import Library from '../Library';
 
 import icon_plan_on from '../../asserts/icn_plan_on.png';
 import icon_plan_off from '../../asserts/icn_plan_off.png';
@@ -74,7 +75,7 @@ export class App extends Component {
             }}
             data-seed="logId1"
           >
-            {this.renderContent('Library')}
+            <Library />
           </TabBar.Item>
           <TabBar.Item
             icon={{ uri: icon_progress_off}}

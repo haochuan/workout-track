@@ -35,6 +35,25 @@ const workoutRoute = {
     });
   },
 
+  // not in test
+  find: function(req, res) {
+    const filter = req.query;
+    Workout.find(filter, function(err, workout) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        if (workout) {
+          res.status(200).send(workout);
+        } else {
+          res.status(404).send({
+            status: 'NOTFOUND',
+            message: 'Workout Not Found'
+          });
+        }
+      }
+    });
+  },
+
   findAll: function(req, res) {
     Workout.find({}, function(err, workout) {
       if (err) {

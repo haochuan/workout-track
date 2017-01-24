@@ -1,12 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import AddNew from '../AddNew';
+import Title from '../Title';
 import './style.css';
 
 const DateView = () => (
   <div className="dateView-container">
-    <div className="dateView-title">
-      Today
-    </div>
+    <Title title={"Today"} />
     <div className="dateView-content">
       <AddNew />
     </div>
